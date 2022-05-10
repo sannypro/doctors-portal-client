@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './Pages/Shared/Navbar';
 import Home from "./Pages/Home/Home"
 import Login from './Pages/Login/Login';
+import Footer from './Pages/Shared/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
       </Routes>
+      <Footer>  </Footer>
     </div>
   );
 }

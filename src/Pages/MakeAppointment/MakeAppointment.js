@@ -14,7 +14,7 @@ const MakeAppointment = () => {
                 </h3>
                 <h2 className='text-3xl text-white'>Exceptional Dental Care, on Your Terms</h2>
                 <p className='text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quidem veniam, autem eligendi ipsa atque vero deserunt ex, est laborum eaque nemo. Doloribus minus repellat unde praesentium ipsa voluptatibus maxime iste modi, eveniet nam hic delectus in optio voluptatem. Hic?</p>
-                <button class="btn btn-primary uppercases text-white font-bold bg-gradient-to-r from-secondary to-primary ">Get Started</button>
+                <button className="btn btn-primary uppercases text-white font-bold bg-gradient-to-r from-secondary to-primary ">Get Started</button>
             </div>
         </section>
     );

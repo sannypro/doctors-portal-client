@@ -3,6 +3,7 @@ import qoute from '../../assets/icons/quote.svg'
 import people from '../../assets/images/people1.png'
 import people2 from '../../assets/images/people2.png'
 import people3 from '../../assets/images/people3.png'
+import Review from '../Review/Review';
 
 const Testimonials = () => {
     const reviews = [
@@ -10,19 +11,22 @@ const Testimonials = () => {
             _id: 1,
             name: "Winson Herry",
             review: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
-            img: people
+            img: people,
+            location: "california"
         },
         {
             _id: 2,
             name: "Winson Herry",
             review: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
-            img: people2
+            img: people2,
+            location: "california"
         },
         {
             _id: 3,
             name: "Winson Herry",
             review: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
-            img: people3
+            img: people3,
+            location: "california"
         },
     ]
     return (
@@ -36,8 +40,10 @@ const Testimonials = () => {
                     <img className='w-24 lg:w-48' src={qoute} alt="" />
                 </div>
             </div>
-            <div >
-
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
+                {
+                    reviews.map(review => <Review key={review._id} review={review}></Review>)
+                }
             </div>
         </section>
     );
