@@ -14,10 +14,10 @@ const InputForm = () => {
 
 
                     <div className='text-center flex-col justify-ceneter my-10'>
-                        <input type="text" placeholder="Email" class="input block input-bordered my-5 h-12 input-md w-full max-w-lg" />
-                        <input type="text" placeholder="Subject" class="input h-12 block input-bordered my-5  input-md w-full max-w-lg" />
+                        <input type="text" placeholder="Email" className="input block input-bordered my-5 h-12 input-md w-full max-w-lg" />
+                        <input type="text" placeholder="Subject" className="input h-12 block input-bordered my-5  input-md w-full max-w-lg" />
 
-                        <textarea type="text" placeholder="Type here" class="textarea block  h-32 w-full max-w-lg  my-5  textarea-accent" />
+                        <textarea type="text" placeholder="Type here" className="textarea block  h-32 w-full max-w-lg  my-5  textarea-accent" />
                         <button className="btn btn-primary uppercases my-5  text-white font-bold bg-gradient-to-r from-secondary to-primary ">Get Started</button>
                     </div>
                 </div>

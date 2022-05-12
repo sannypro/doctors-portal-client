@@ -6,9 +6,9 @@ import doctorChair from '../../assets/images/chair.png'
 const AppointmentBanner = ({ date, setDate }) => {
 
     return (
-        <div class="hero min-h-screen">
-            <div class="hero-content flex-col lg:flex-row-reverse">
-                <img src={doctorChair} class="max-w-sm rounded-lg shadow-2xl" alt='' />
+        <div className="hero min-h-screen">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <img src={doctorChair} className="max-w-sm rounded-lg shadow-2xl" alt='' />
                 <div>
                     <DayPicker mode="single"
                         selected={date}
