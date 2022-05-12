@@ -1,11 +1,14 @@
 import { format } from 'date-fns';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const BookingModal = ({ treatment, date, setTreatment }) => {
+    const [user, loading, error] = useAuthState(auth);
     const handleBooking = e => {
         e.preventDefault()
         const slot = e.target.slot.value;
-        console.log(slot);
+
         setTreatment(null)
     }
     return (
@@ -15,24 +18,24 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
                 <div className="modal-box">
                     <h3 className="font-bold text-lg text-secondary">{treatment.name}</h3>
 
-                    <label for="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center mt-3'>
                         <input type="text" disabled value={format(date, 'PP')} className="input input-bordered w-full max-w-xs" />
                         <select name='slot' className="select select-bordered w-full max-w-xs">
                             {
-                                treatment.slots.map(slot => <option value={slot}>{slot}</option>)
+                                treatment.slots.map((slot, index) => <option key={index} value={slot}>{slot}</option>)
                             }
 
                         </select>
-                        <input required name='email' type="email" placeholder="Email" className="input input-bordered w-full max-w-xs" />
-                        <input required type="text" name='name' placeholder="Name" className="input input-bordered w-full max-w-xs" />
+                        <input required name='email' type="email" disabled value={user?.email} className="input input-bordered w-full max-w-xs" />
+                        <input required type="text" name='name' disabled value={user?.displayName} className="input input-bordered w-full max-w-xs" />
                         <input required type="text" name='number' placeholder="Number" className="input input-bordered w-full max-w-xs" />
                         <input type="submit" className=" btn btn-secondary w-full max-w-xs" />
                     </form>
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
