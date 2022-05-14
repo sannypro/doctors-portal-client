@@ -8,6 +8,8 @@ import Footer from './Pages/Shared/Footer';
 import Appointment from './Pages/Appointment/Appointment';
 import Signup from './Pages/Signup/Signup';
 import RequireAuth from './Pages/RequireAuth';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path='/signup' element={<Signup></Signup>}></Route>
       </Routes>
       <Footer>  </Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
