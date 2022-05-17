@@ -22,7 +22,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
             patientName: user.displayName,
             phone: e.target.number.value
         };
-        axios.post('http://localhost:5000/booking', booking)
+        axios.post('https://lit-reaches-57483.herokuapp.com/booking', booking)
             .then(response => {
                 console.log(response.data.success);
                 if (response.data.success) {

@@ -12,7 +12,7 @@ const MyAppointment = () => {
     useEffect(() => {
 
         if (user) {
-            fetch(`http://localhost:5000/dashboard?patientEmail=${user.email}`, {
+            fetch(`https://lit-reaches-57483.herokuapp.com/dashboard?patientEmail=${user.email}`, {
                 method: 'GET',
 
                 headers: {
