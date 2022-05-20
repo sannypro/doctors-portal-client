@@ -1,19 +1,24 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
+import DeleteConfirm from './DeleteConfirm';
 import Loading from './Shared/Loading';
 
 const ManageDoctors = () => {
-    const { data: doctors, isLoading } = useQuery('doctors', () => fetch('http://localhost:5000/doctors', {
+    const [deletingDoctor, setDeletingDoctor] = useState(null)
+    const { data: doctors, isLoading, refetch } = useQuery('doctors', () => fetch('https://lit-reaches-57483.herokuapp.com/doctors', {
         method: 'GET',
         headers: {
             "authorization": `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()))
+    console.log(doctors);
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log(doctors?.length);
+
+
     return (
         <div>
             <h2 className="text-2xl">Manage Doctors: {doctors?.length}</h2>
@@ -40,13 +45,16 @@ const ManageDoctors = () => {
                                 </div></td>
                                 <td>{doctor.name}</td>
                                 <td>{doctor.speciality}</td>
-                                <td><button class="btn btn-xs btn-error">Delete</button></td>
+                                <td><label onClick={() => setDeletingDoctor(doctor)} for="delete-confirm-modal" class="btn modal-button">delete</label></td>
                             </tr>)
                         }
 
                     </tbody>
                 </table>
             </div>
+            {
+                deletingDoctor && <DeleteConfirm deletingDoctor={deletingDoctor} setDeletingDoctor={setDeletingDoctor} refetch={refetch}></DeleteConfirm>
+            }
         </div>
     );
 };

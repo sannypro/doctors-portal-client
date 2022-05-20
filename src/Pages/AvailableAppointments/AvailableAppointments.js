@@ -15,11 +15,7 @@ const AvailableAppointments = ({ date }) => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    // useEffect(() => {
-    //     fetch(`https://lit-reaches-57483.herokuapp.com/available?date=${formattedDate}`)
-    //         .then(res => res.json())
-    //         .then(data => setServices(data))
-    // }, [formattedDate])
+
     return (
         <div>
             <h1 className='text-xl text-secondary text-center'>Available appointments on {format(date, 'PP')}</h1>

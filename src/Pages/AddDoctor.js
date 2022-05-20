@@ -7,7 +7,7 @@ import Loading from './Shared/Loading';
 
 const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/service').then(res => res.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch('https://lit-reaches-57483.herokuapp.com/service').then(res => res.json()))
     const imgStorage = 'af2c0210144242efb0288fa2cd0437b7'
     const onSubmit = async data => {
         console.log(data);
@@ -28,7 +28,7 @@ const AddDoctor = () => {
                         speciality: data.speciality,
                         img: img
                     }
-                    axios.post('http://localhost:5000/doctors', doctor, {
+                    axios.post('https://lit-reaches-57483.herokuapp.com/doctors', doctor, {
                         headers: {
                             "authorization": `Bearer ${localStorage.getItem('accessToken')}`
                         }

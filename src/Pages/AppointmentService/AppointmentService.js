@@ -12,6 +12,7 @@ const AppointmentService = ({ service, setTreatment }) => {
                         ? <span>{slots[0]}</span>
                         : <span className='text-red-500'>Try another date.</span>
                 }</p>
+                <p>Price: ${service.price}</p>
                 <p>{slots.length}{slots.length > 1 ? 'space' : 'spaces'}  Available</p>
                 <div className="card-actions justify-center">
 
